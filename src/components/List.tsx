@@ -1,5 +1,5 @@
 import '../index.css'
-import Task from './Task.tsx'
+import Task from './Task'
 
 function ToDoList() {
   const tasks: string[] = []
