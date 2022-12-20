@@ -1,12 +1,17 @@
+import { useState } from 'react'
 import '../index.css'
 import Task from './Task'
 
+const tasks: string[] = []
+
 function ToDoList() {
-  const tasks: string[] = []
+
+  const [list, setList] = useState(0)
 
   const add = () => { // add a task in the to do list
     var task = ""
     tasks.push(task)
+    console.log("task added to the list")
   }
 
   return (
@@ -19,11 +24,10 @@ function ToDoList() {
       </div>
 
       <div id="list">
-
+        {list}
       </div>
     </div>
   )
-  
 }
 
 export default ToDoList
