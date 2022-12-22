@@ -1,22 +1,22 @@
 import { useState, useRef } from 'react'
 import '../index.css'
 
-const tasks: string[] = []
-
-
 function ToDoList() {
-  const [list, setList] = useState()
+  const [list, setList] = useState([])
   const inputRef = useRef(null)
 
   const addTask = () => { // add a task to the list
     var task = inputRef.current.value
-    tasks.push(task)
     console.log("task added to the list")
-    console.log(tasks)
+    console.log(list)
+    setList([task, ...list])
   }
 
-  const deleteTask = () => { // delete a task from the list
+  const deleteTask = (index: any) => { // delete a task from the list
     console.log("task removed from the list")
+    const newList = [...list]
+    newList.splice(index, 1)
+    setList(newList)
   }
 
   return (
@@ -29,7 +29,13 @@ function ToDoList() {
       </div>
 
       <div id="list">
-        {list}
+        <ul>
+          {list.map((task, index) => (
+            <div className="task">
+              <li key={task}>{task}</li><button onClick={() => deleteTask(index)}>delete</button>
+            </div>
+          ))}
+        </ul>
       </div>
     </div>
   )

@@ -73,3 +73,7 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
 }
+
+.task {
+  display: flex;
+}
